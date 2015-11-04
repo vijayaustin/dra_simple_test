@@ -11,7 +11,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "EVENT_TYPE_KEY",
+            "label_key": "EVENT_TYPE_KEY_1",
             "desc_key": "EVENT_TYPE_DESC"
         },
         {
@@ -19,7 +19,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "FILE_KEY",
+            "label_key": "FILE_KEY_1",
             "desc_key": "FILE_DESC"
         },
         {
@@ -27,7 +27,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "SERVER_KEY",
+            "label_key": "SERVER_KEY_1",
             "desc_key": "SERVER_DESC"
         },
         
@@ -38,7 +38,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "EVENT_TYPE_KEY",
+            "label_key": "EVENT_TYPE_KEY_2",
             "desc_key": "EVENT_TYPE_DESC"
         },
         {
@@ -46,7 +46,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "FILE_KEY",
+            "label_key": "FILE_KEY_2",
             "desc_key": "FILE_DESC"
         },
         {
@@ -54,7 +54,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "SERVER_KEY",
+            "label_key": "SERVER_KEY_2",
             "desc_key": "SERVER_DESC"
         },
         
@@ -65,7 +65,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "EVENT_TYPE_KEY",
+            "label_key": "EVENT_TYPE_KEY_3",
             "desc_key": "EVENT_TYPE_DESC"
         },
         {
@@ -73,7 +73,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "FILE_KEY",
+            "label_key": "FILE_KEY_3",
             "desc_key": "FILE_DESC"
         },
         {
@@ -81,7 +81,7 @@
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "SERVER_KEY",
+            "label_key": "SERVER_KEY_3",
             "desc_key": "SERVER_DESC"
         },
         
