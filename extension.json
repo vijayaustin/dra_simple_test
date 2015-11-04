@@ -1,33 +1,95 @@
 {
-    "id": "ibm.devops.services.pipeline.dra_gate",
+    "id": "ibm.devops.services.pipeline.dra_simple_test",
     "version": 1,
     "name_key": "ExtName",
     "desc_key": "ExtDesc",
     "extension_type": "Test",
     "message_key": "ExtMessage",
-    "inputs": [
-        {
-            "type": "Bluemix",
-            "inclusion" : "always"
-        }
-    ],
     "params": [
         {
-            "name": "USER_ID",
+            "name": "EVENT_TYPE_1",
             "type": "Text",
-            "required": "true",
+            "required": "false",
             "default_value": "",
-            "label_key": "USER_ID_KEY",
-            "desc_key": "USER_ID_DESC"
+            "label_key": "EVENT_TYPE_KEY",
+            "desc_key": "EVENT_TYPE_DESC"
         },
         {
-            "name": "ACCESS",
-            "type": "Secure",
-            "required": "true",
+            "name": "FILE_1",
+            "type": "Text",
+            "required": "false",
             "default_value": "",
-            "label_key": "ACCESS_KEY",
-            "desc_key": "ACCESS_KEY_DESC"
+            "label_key": "FILE_KEY",
+            "desc_key": "FILE_DESC"
         },
+        {
+            "name": "SERVER_1",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "SERVER_KEY",
+            "desc_key": "SERVER_DESC"
+        },
+        
+        
+        
+        {
+            "name": "EVENT_TYPE_2",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "EVENT_TYPE_KEY",
+            "desc_key": "EVENT_TYPE_DESC"
+        },
+        {
+            "name": "FILE_2",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "FILE_KEY",
+            "desc_key": "FILE_DESC"
+        },
+        {
+            "name": "SERVER_2",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "SERVER_KEY",
+            "desc_key": "SERVER_DESC"
+        },
+        
+        
+        
+        {
+            "name": "EVENT_TYPE_3",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "EVENT_TYPE_KEY",
+            "desc_key": "EVENT_TYPE_DESC"
+        },
+        {
+            "name": "FILE_3",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "FILE_KEY",
+            "desc_key": "FILE_DESC"
+        },
+        {
+            "name": "SERVER_3",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "SERVER_KEY",
+            "desc_key": "SERVER_DESC"
+        },
+        
+        
+        
+        
+        
+        
         {
             "name": "SELECT_CMD",
             "type": "Select",
@@ -63,10 +125,6 @@
                 {
                     "label_key": "CUSTOM_KEY",
                     "value": "custom"
-                },
-                {
-                    "label_key": "jaime test",
-                    "value": "custom"
                 }
             ]
         },
@@ -77,22 +135,6 @@
             "default_value" : "#!/bin/bash",
             "label_key": "COMMAND_KEY",
             "desc_key": "COMMAND_DESC"
-        },
-        {
-            "name": "DL_ASSETS",
-            "type": "Checkbox",
-            "required": "true",
-            "default_value": "true",
-            "label_key": "ASSET_KEY",
-            "desc_key": "ASSET_DESC"
-        },
-        {
-            "name": "ENABLE_DRA",
-            "type": "Checkbox",
-            "required": "false",
-            "default_value": "false",
-            "label_key": "DRA_KEY",
-            "desc_key": "DRA_DESC"
         }
     ],
     "outputs": [
@@ -168,8 +210,8 @@ echo -e \"Init runtime of `date -u -d @\"$INIT_EST_TIME\" +\'%-Mm %-Ss\'`\"
 #export PYTHONPATH=$PYTHONPATH:/tmp
 #easy_install --install-dir=/tmp prettytable
 
-echo \"Download Assets: \"
-echo $DOWNLOAD_ASSETS
+#echo \"Download Assets: \"
+#echo $DOWNLOAD_ASSETS
 
 #. $EXT_DIR/execute.sh
 #RESULT=$?
