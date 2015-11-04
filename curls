@@ -1,0 +1,12 @@
+curl -k -H "Content-Type: application/json" -d "{'url':'https://github.com/jparra5/dra_gate.git'}" -X POST https://10.41.34.250:9443/pipeline/extensions
+
+
+curl -k -X POST https://10.41.34.250:9443/pipeline/extensions/ibm.devops.services.pipeline.dra_gate
+
+
+curl -k -H "Content-Type: application/json" -d "{'url':'https://github.com/jparra5/dra_gate.git'}" -X PUT https://10.41.34.250:9443/pipeline/extensions/ibm.devops.services.pipeline.dra_gate
+
+
+
+
+
