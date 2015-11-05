@@ -70,7 +70,7 @@ function execute {
         grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=SaucelabFvtTest -file=job_data_collection.json -deployAnalyticsServer="$DA_SERVER"
     fi
     
-    mv job_data_collection.json ${ARCHIVE_DIR}
+#    mv job_data_collection.json ${ARCHIVE_DIR}
     
 #    if [ $RESULT -ne 0 ] || [ $PY_RES -ne 0 ]; then
 #        exit 1
