@@ -112,19 +112,60 @@ function dra_logger {
     npm install grunt-idra
     
     echo "event: ${DRA_EVENT_TYPE_1}"
-    echo "\tfile: ${DRA_FILE_1}"
-    echo "\tserver: ${DRA_SERVER_1}"
+    echo -e "\tfile: ${DRA_FILE_1}"
+    echo -e "\tserver: ${DRA_SERVER_1}"
     echo "event 2: ${DRA_EVENT_TYPE_2}"
-    echo "\tfile: ${DRA_FILE_2}"
-    echo "\tserver: ${DRA_SERVER_2}"
+    echo -e "\tfile: ${DRA_FILE_2}"
+    echo -e "\tserver: ${DRA_SERVER_2}"
     echo "event 3: ${DRA_EVENT_TYPE_3}"
-    echo "\tfile: ${DRA_FILE_3}"
-    echo "\tserver: ${DRA_SERVER_3}"
+    echo -e "\tfile: ${DRA_FILE_3}"
+    echo -e "\tserver: ${DRA_SERVER_3}"
+
+    dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER_1}"
+    dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}" "${DRA_SERVER_2}"
+    dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}" "${DRA_SERVER_3}"
+
+
     
-#    if [ -z "${DRA_EVENT_TYPE_1}" ]; then 
-#        echo -e "${red}No SAUCE_ACCESS_KEY defined, please either select for the service to be added, or define SAUCE_ACCESS_KEY in the stage configuration${no_color}"
-#        exit 1     
-#    fi 
+#grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=istanbulCoverage -file=tests/coverage/reports/coverage-summary.json
+#grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=testComplete -deployAnalyticsServer=https://da-test.oneibmcloud.com    
+}
+
+function dra_commands{
+    dra_grunt_command=""
+    
+    if [ -n "$1" ] && [ "$1" != " " ]; then
+        echo "$1 is defined and not empty"
+        
+        dra_grunt_command="grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=$1"
+        
+        echo "dra_grunt_command: $dra_grunt_command"
+        
+        if [ -n "$2" ] && [ "$2" != " " ]; then
+            echo "$2 is defined and not empty"
+            
+            dra_grunt_command="$dra_grunt_command -file=$2"
+        
+            echo "dra_grunt_command: $dra_grunt_command"
+            
+        else
+            echo "$2 is not defined and empty"
+        fi
+        if [ -n "$3" ] && [ "$3" != " " ]; then
+            echo "$3 is defined and not empty"
+            
+            dra_grunt_command="$dra_grunt_command -file=$3"
+        
+            echo "dra_grunt_command: $dra_grunt_command"
+            
+        else
+            echo "$3 is not defined and empty"
+        fi
+        
+        echo "FINAL dra_grunt_command: $dra_grunt_command"
+    else
+        echo "$1 is not defined and empty"
+    fi
 }
 
 dra_logger
