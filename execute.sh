@@ -168,7 +168,7 @@ function dra_commands {
         echo -e "\tFINAL dra_grunt_command: $dra_grunt_command"
         echo ""
         
-        eval dra_grunt_command
+        eval $dra_grunt_command
     else
         echo "Event: '$1' is not defined or is empty"
     fi
