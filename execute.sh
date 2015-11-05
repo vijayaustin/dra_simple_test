@@ -51,6 +51,8 @@ cmd_choice=$CMD_CHOICE
 function execute { 
     eval $cmd_choice
     RESULT=$?
+    echo "$cmd_choice"
+    echo "$RESULT"
 #    ${EXT_DIR}/sauce.py
 #    PY_RES=$?
     
