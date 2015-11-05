@@ -84,50 +84,6 @@
             "label_key": "SERVER_KEY_3",
             "desc_key": "SERVER_DESC"
         },
-        
-        
-        
-        
-        
-        
-        {
-            "name": "SELECT_CMD",
-            "type": "Select",
-            "required": "false",
-            "default_value": " ",
-            "label_key": "SELECT_CMD_KEY",
-            "desc_key": "SELECT_CMD_DESC",
-            "options": [
-                {
-                    "label_key": "EMPTY_KEY",
-                    "value": " "
-                },
-                {
-                    "label_key": "NPM_KEY",
-                    "value": "npm test"
-                },
-                { 
-                    "label_key": "GRUNT_KEY",
-                    "value": "grunt" 
-                },
-                { 
-                    "label_key": "GRUNT_T_KEY",
-                    "value": "grunt test"
-                },
-                {
-                    "label_key": "ANT_KEY",
-                    "value": "ant test"
-                },
-                {
-                    "label_key": "MVN_KEY",
-                    "value": "mvn test"
-                },
-                {
-                    "label_key": "CUSTOM_KEY",
-                    "value": "custom"
-                }
-            ]
-        },
         {
             "name": "COMMAND",
             "type": "TextArea",
@@ -194,15 +150,15 @@ function custom_cmd {
 #        mv videos.zip ${ARCHIVE_DIR}
 #    fi
 
-    if [ \"${DRA}\" == true ]; then
-        #insert DRA commands here
-        npm install grunt
-        npm install grunt-cli
-        npm install grunt-idra
-        grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=SaucelabFvtTest -file=job_data_collection.json -deployAnalyticsServer=\"$DA_SERVER\"
-    fi
+#    if [ \"${DRA}\" == true ]; then
+#        #insert DRA commands here
+#        npm install grunt
+#        npm install grunt-cli
+#        npm install grunt-idra
+#        grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=SaucelabFvtTest -file=job_data_collection.json -deployAnalyticsServer=\"$DA_SERVER\"
+#    fi
     
-    mv job_data_collection.json ${ARCHIVE_DIR}
+#    mv job_data_collection.json ${ARCHIVE_DIR}
 
 #    if [ $RESULT -ne 0 ] || [ $PY_RES -ne 0 ]; then
 #        exit 1
