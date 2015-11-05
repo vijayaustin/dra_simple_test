@@ -33,34 +33,34 @@ debugme() {
 set +e
 set +x 
 
-if [ -z "${SAUCE_USERNAME}" ]; then
-    echo -e "${red}No SAUCE_USERNAME defined, please enter your username in the stage configuration.${no_color}"
-    exit 1     
-fi 
+#if [ -z "${SAUCE_USERNAME}" ]; then
+#    echo -e "${red}No SAUCE_USERNAME defined, please enter your username in the stage configuration.${no_color}"
+#    exit 1     
+#fi 
+#
+#if [ -z "${SAUCE_ACCESS_KEY}" ]; then 
+#    echo -e "${red}No SAUCE_ACCESS_KEY defined, please either select for the service to be added, or define SAUCE_ACCESS_KEY in the stage configuration${no_color}"
+#    exit 1     
+#fi 
 
-if [ -z "${SAUCE_ACCESS_KEY}" ]; then 
-    echo -e "${red}No SAUCE_ACCESS_KEY defined, please either select for the service to be added, or define SAUCE_ACCESS_KEY in the stage configuration${no_color}"
-    exit 1     
-fi 
-
-debugme echo "SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}"
-debugme echo "USER_ID: ${SAUCE_USERNAME}"
+#debugme echo "SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}"
+#debugme echo "USER_ID: ${SAUCE_USERNAME}"
 
 cmd_choice=$CMD_CHOICE
 
 function execute { 
     eval $cmd_choice
     RESULT=$?
-    ${EXT_DIR}/sauce.py
-    PY_RES=$?
+#    ${EXT_DIR}/sauce.py
+#    PY_RES=$?
     
-    if [ "${DOWNLOAD_ASSETS}" == true ]; then
-        echo "zipping files"
-        zip -q selenium_logs.zip selenium-server-*
-        zip -q videos.zip video-*
-        mv selenium_logs.zip ${ARCHIVE_DIR}
-        mv videos.zip ${ARCHIVE_DIR}
-    fi
+#    if [ "${DOWNLOAD_ASSETS}" == true ]; then
+#        echo "zipping files"
+#        zip -q selenium_logs.zip selenium-server-*
+#        zip -q videos.zip video-*
+#        mv selenium_logs.zip ${ARCHIVE_DIR}
+#        mv videos.zip ${ARCHIVE_DIR}
+#    fi
     
     if [ "${DRA}" == true ]; then
         #insert DRA commands here
@@ -72,7 +72,10 @@ function execute {
     
     mv job_data_collection.json ${ARCHIVE_DIR}
     
-    if [ $RESULT -ne 0 ] || [ $PY_RES -ne 0 ]; then
+#    if [ $RESULT -ne 0 ] || [ $PY_RES -ne 0 ]; then
+#        exit 1
+#    fi
+    if [ $RESULT -ne 0 ]; then
         exit 1
     fi
 }
@@ -102,3 +105,32 @@ if [[ $cmd_choice == " " ]] || [[ -z "$cmd_choice" ]]; then
         execute
     fi
 fi
+
+function dra_logger {
+    npm install grunt
+    npm install grunt-cli
+    npm install grunt-idra
+    
+    echo "event: ${DRA_EVENT_TYPE_1}"
+    echo "\tfile: ${DRA_FILE_1}"
+    echo "\tserver: ${DRA_SERVER_1}"
+    echo "event 2: ${DRA_EVENT_TYPE_2}"
+    echo "\tfile: ${DRA_FILE_2}"
+    echo "\tserver: ${DRA_SERVER_2}"
+    echo "event 3: ${DRA_EVENT_TYPE_3}"
+    echo "\tfile: ${DRA_FILE_3}"
+    echo "\tserver: ${DRA_SERVER_3}"
+    
+#    if [ -z "${DRA_EVENT_TYPE_1}" ]; then 
+#        echo -e "${red}No SAUCE_ACCESS_KEY defined, please either select for the service to be added, or define SAUCE_ACCESS_KEY in the stage configuration${no_color}"
+#        exit 1     
+#    fi 
+}
+
+
+
+
+
+
+
+
