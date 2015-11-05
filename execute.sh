@@ -157,7 +157,7 @@ function dra_commands {
         if [ -n "$3" ] && [ "$3" != " " ]; then
             echo -e "\tServer: '$3' is defined and not empty"
             
-            dra_grunt_command="$dra_grunt_command -file=$3"
+            dra_grunt_command="$dra_grunt_command -deployAnalyticsServer=$3"
         
             echo -e "\t\tdra_grunt_command: $dra_grunt_command"
             
