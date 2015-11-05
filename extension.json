@@ -214,10 +214,10 @@ function custom_cmd {
     
 export -f custom_cmd
         
-. $EXT_DIR/_init.sh
-INIT_END_TIME=$(date +\"%s\")
-INIT_EST_TIME=$(($INIT_END_TIME-$INIT_START_TIME))
-echo -e \"Init runtime of `date -u -d @\"$INIT_EST_TIME\" +\'%-Mm %-Ss\'`\"
+#. $EXT_DIR/_init.sh
+#INIT_END_TIME=$(date +\"%s\")
+#INIT_EST_TIME=$(($INIT_END_TIME-$INIT_START_TIME))
+#echo -e \"Init runtime of `date -u -d @\"$INIT_EST_TIME\" +\'%-Mm %-Ss\'`\"
         
 #sudo apt-get install -y python-setuptools
 #export PYTHONPATH=$PYTHONPATH:/tmp
