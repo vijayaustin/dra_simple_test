@@ -107,19 +107,20 @@ if [[ $cmd_choice == " " ]] || [[ -z "$cmd_choice" ]]; then
 fi
 
 function dra_logger {
-    npm install grunt
-    npm install grunt-cli
-    npm install grunt-idra
+#    npm install grunt
+#    npm install grunt-cli
+#    npm install grunt-idra
     
     echo "event: ${DRA_EVENT_TYPE_1}"
-    echo -e "\tfile: ${DRA_FILE_1}"
-    echo -e "\tserver: ${DRA_SERVER_1}"
+    echo -e "└── file: ${DRA_FILE_1}"
+    echo -e "└── server: ${DRA_SERVER_1}"
     echo "event 2: ${DRA_EVENT_TYPE_2}"
-    echo -e "\tfile: ${DRA_FILE_2}"
-    echo -e "\tserver: ${DRA_SERVER_2}"
+    echo -e "└──file: ${DRA_FILE_2}"
+    echo -e "└──server: ${DRA_SERVER_2}"
     echo "event 3: ${DRA_EVENT_TYPE_3}"
-    echo -e "\tfile: ${DRA_FILE_3}"
-    echo -e "\tserver: ${DRA_SERVER_3}"
+    echo -e "└──file: ${DRA_FILE_3}"
+    echo -e "└──server: ${DRA_SERVER_3}"
+    echo -e ""
 
     dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER_1}"
     dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}" "${DRA_SERVER_2}"
@@ -131,41 +132,43 @@ function dra_logger {
 #grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=testComplete -deployAnalyticsServer=https://da-test.oneibmcloud.com    
 }
 
-function dra_commands{
+function dra_commands {
     dra_grunt_command=""
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
-        echo "$1 is defined and not empty"
+        echo "Event: '$1' is defined and not empty"
         
         dra_grunt_command="grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=$1"
         
-        echo "dra_grunt_command: $dra_grunt_command"
+        echo -e "\tdra_grunt_command: $dra_grunt_command"
         
         if [ -n "$2" ] && [ "$2" != " " ]; then
-            echo "$2 is defined and not empty"
+            echo -e "\tFile: '$2' is defined and not empty"
             
             dra_grunt_command="$dra_grunt_command -file=$2"
         
-            echo "dra_grunt_command: $dra_grunt_command"
+            echo -e "\t\tdra_grunt_command: $dra_grunt_command"
             
         else
-            echo "$2 is not defined and empty"
+            echo -e "\tFile: '$2' is not defined or is empty"
         fi
         if [ -n "$3" ] && [ "$3" != " " ]; then
-            echo "$3 is defined and not empty"
+            echo -e "\tServer: '$3' is defined and not empty"
             
             dra_grunt_command="$dra_grunt_command -file=$3"
         
-            echo "dra_grunt_command: $dra_grunt_command"
+            echo -e "\t\tdra_grunt_command: $dra_grunt_command"
             
         else
-            echo "$3 is not defined and empty"
+            echo -e "\tServer: '$3' is not defined or is empty"
         fi
         
-        echo "FINAL dra_grunt_command: $dra_grunt_command"
+        echo -e "\tFINAL dra_grunt_command: $dra_grunt_command"
     else
-        echo "$1 is not defined and empty"
+        echo "Event: '$1' is not defined or is empty"
     fi
+    
+    echo ""
 }
 
 dra_logger
