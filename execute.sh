@@ -127,6 +127,8 @@ function dra_logger {
 #    fi 
 }
 
+dra_logger
+
 
 
 
