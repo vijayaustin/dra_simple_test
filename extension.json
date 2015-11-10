@@ -7,6 +7,17 @@
     "message_key": "ExtMessage",
     "params": [
         {
+            "name": "PROJECT_KEY",
+            "type": "Text",
+            "required": "true",
+            "default_value": "",
+            "label_key": "PROJECT_KEY_KEY",
+            "desc_key": "PROJECT_KEY_DESC"
+        },
+        
+        
+        
+        {
             "name": "EVENT_TYPE_1",
             "type": "Text",
             "required": "false",
@@ -88,6 +99,7 @@ set +x
 set +e 
 
         
+export DRA_PROJECT_KEY=#PROJECT_KEY#
 export DRA_EVENT_TYPE_1=#EVENT_TYPE_1#
 export DRA_FILE_1=#FILE_1#
 export DRA_SERVER_1=#SERVER_1#

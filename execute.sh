@@ -38,7 +38,7 @@ function dra_logger {
     npm install grunt-cli
     npm install grunt-idra
 
-    
+    echo "DRA_PROJECT_KEY: ${DRA_PROJECT_KEY}"
     echo "event: ${DRA_EVENT_TYPE_1}"
     echo -e "└── file: ${DRA_FILE_1}"
     #echo -e "└── server: ${DRA_SERVER}"
