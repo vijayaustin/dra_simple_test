@@ -49,17 +49,18 @@ function dra_logger {
     echo -e "└──file: ${DRA_FILE_3}"
     #echo -e "└──server: ${DRA_SERVER_3}"
     echo -e ""
-    echo "server: ${DRA_SERVER}"
-    echo ""
 
-    dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER}"
-    dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}" "${DRA_SERVER}"
-    dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}" "${DRA_SERVER}"
+    #dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER}"
+    #dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}" "${DRA_SERVER}"
+    #dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}" "${DRA_SERVER}"
+    dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}"
+    dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}"
+    dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}"
 
 
     
-#grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=istanbulCoverage -file=tests/coverage/reports/coverage-summary.json
-#grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=testComplete -deployAnalyticsServer=https://da-test.oneibmcloud.com    
+    #grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=istanbulCoverage -file=tests/coverage/reports/coverage-summary.json
+    #grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=testComplete -deployAnalyticsServer=https://da-test.oneibmcloud.com    
 }
 
 function dra_commands {
@@ -82,16 +83,16 @@ function dra_commands {
         else
             echo -e "\tFile: '$2' is not defined or is empty"
         fi
-        if [ -n "$3" ] && [ "$3" != " " ]; then
-            echo -e "\tServer: '$3' is defined and not empty"
-            
-            dra_grunt_command="$dra_grunt_command -deployAnalyticsServer=$3"
-        
-            echo -e "\t\tdra_grunt_command: $dra_grunt_command"
-            
-        else
-            echo -e "\tServer: '$3' is not defined or is empty"
-        fi
+        #if [ -n "$3" ] && [ "$3" != " " ]; then
+        #    echo -e "\tServer: '$3' is defined and not empty"
+        #
+        #    dra_grunt_command="$dra_grunt_command -deployAnalyticsServer=$3"
+        #
+        #    echo -e "\t\tdra_grunt_command: $dra_grunt_command"
+        #
+        #else
+        #    echo -e "\tServer: '$3' is not defined or is empty"
+        #fi
         
         echo -e "\tFINAL dra_grunt_command: $dra_grunt_command"
         echo ""
