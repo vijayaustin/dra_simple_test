@@ -41,18 +41,20 @@ function dra_logger {
     
     echo "event: ${DRA_EVENT_TYPE_1}"
     echo -e "└── file: ${DRA_FILE_1}"
-    echo -e "└── server: ${DRA_SERVER_1}"
+    #echo -e "└── server: ${DRA_SERVER}"
     echo "event 2: ${DRA_EVENT_TYPE_2}"
     echo -e "└──file: ${DRA_FILE_2}"
-    echo -e "└──server: ${DRA_SERVER_2}"
+    #echo -e "└──server: ${DRA_SERVER_2}"
     echo "event 3: ${DRA_EVENT_TYPE_3}"
     echo -e "└──file: ${DRA_FILE_3}"
-    echo -e "└──server: ${DRA_SERVER_3}"
+    #echo -e "└──server: ${DRA_SERVER_3}"
     echo -e ""
+    echo "server: ${DRA_SERVER}"
+    echo ""
 
-    dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER_1}"
-    dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}" "${DRA_SERVER_2}"
-    dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}" "${DRA_SERVER_3}"
+    dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER}"
+    dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}" "${DRA_SERVER}"
+    dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}" "${DRA_SERVER}"
 
 
     

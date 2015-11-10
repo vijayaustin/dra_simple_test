@@ -22,14 +22,6 @@
             "label_key": "FILE_KEY_1",
             "desc_key": "FILE_DESC"
         },
-        {
-            "name": "SERVER_1",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "SERVER_KEY_1",
-            "desc_key": "SERVER_DESC"
-        },
         
         
         
@@ -48,14 +40,6 @@
             "default_value": "",
             "label_key": "FILE_KEY_2",
             "desc_key": "FILE_DESC"
-        },
-        {
-            "name": "SERVER_2",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "SERVER_KEY_2",
-            "desc_key": "SERVER_DESC"
         },
         
         
@@ -76,14 +60,7 @@
             "label_key": "FILE_KEY_3",
             "desc_key": "FILE_DESC"
         },
-        {
-            "name": "SERVER_3",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "SERVER_KEY_3",
-            "desc_key": "SERVER_DESC"
-        },
+        
         {
             "name": "COMMAND",
             "type": "TextArea",
