@@ -1,5 +1,5 @@
 {
-    "id": "ibm.devops.services.pipeline.dra_simple_test",
+    "id": "ibm.devops.services.pipeline.tryout_dra_simple_test",
     "version": 1,
     "name_key": "ExtName",
     "desc_key": "ExtDesc",
@@ -69,6 +69,23 @@
             "required": "false",
             "default_value": "",
             "label_key": "FILE_KEY_3",
+            "desc_key": "FILE_DESC"
+        },
+		
+		{
+            "name": "EVENT_TYPE_4",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "EVENT_TYPE_KEY_4",
+            "desc_key": "EVENT_TYPE_DESC"
+        },
+        {
+            "name": "FILE_4",
+            "type": "Text",
+            "required": "false",
+            "default_value": "",
+            "label_key": "FILE_KEY_4",
             "desc_key": "FILE_DESC"
         },
         
