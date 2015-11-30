@@ -18,62 +18,36 @@
         
         
         {
-            "name": "EVENT_TYPE_1",
+            "name": "SERVICE_1",
             "type": "Text",
             "required": "false",
             "default_value": "",
             "label_key": "EVENT_TYPE_KEY_1",
             "desc_key": "EVENT_TYPE_DESC"
         },
-        {
-            "name": "FILE_1",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "FILE_KEY_1",
-            "desc_key": "FILE_DESC"
-        },
-        
+                
         
         
         {
-            "name": "EVENT_TYPE_2",
+            "name": "SERVICE_2",
             "type": "Text",
             "required": "false",
             "default_value": "",
             "label_key": "EVENT_TYPE_KEY_2",
             "desc_key": "EVENT_TYPE_DESC"
         },
-        {
-            "name": "FILE_2",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "FILE_KEY_2",
-            "desc_key": "FILE_DESC"
-        },
-        
-        
         
         {
-            "name": "EVENT_TYPE_3",
+            "name": "SERVICE_3",
             "type": "Text",
             "required": "false",
             "default_value": "",
             "label_key": "EVENT_TYPE_KEY_3",
             "desc_key": "EVENT_TYPE_DESC"
         },
-        {
-            "name": "FILE_3",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "FILE_KEY_3",
-            "desc_key": "FILE_DESC"
-        },
-		
+        
 		{
-            "name": "EVENT_TYPE_4",
+            "name": "SERVICE_4",
             "type": "Text",
             "required": "false",
             "default_value": "",
@@ -156,5 +130,5 @@ fi
     "},
     "project": "https://hub.jazz.net/project/alchemy/Alchemy-Ostanes",
     "project_example": "https://hub.jazz.net/pipeline/Osthanes/blazemeter_static",
-    "project_contact": "jparra@us.ibm.com"
+    "project_contact": "vjegase@us.ibm.com"
 }
