@@ -55,15 +55,6 @@
             "desc_key": "EVENT_TYPE_DESC"
         },
         {
-            "name": "FILE_4",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "FILE_KEY_4",
-            "desc_key": "FILE_DESC"
-        },
-        
-        {
             "name": "COMMAND",
             "type": "TextArea",
             "required": "true",
