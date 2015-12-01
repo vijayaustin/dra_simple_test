@@ -39,15 +39,8 @@ function dra_logger {
     npm install grunt-idra
 
     echo "DRA_PROJECT_KEY: ${DRA_PROJECT_KEY}"
-    echo "event: ${DRA_EVENT_TYPE_1}"
+    echo "Service List: ${DRA_SERVICE_LIST}"
     echo -e "└── file: ${DRA_FILE_1}"
-    #echo -e "└── server: ${DRA_SERVER}"
-    echo "event 2: ${DRA_EVENT_TYPE_2}"
-    echo -e "└──file: ${DRA_FILE_2}"
-    #echo -e "└──server: ${DRA_SERVER_2}"
-    echo "event 3: ${DRA_EVENT_TYPE_3}"
-    echo -e "└──file: ${DRA_FILE_3}"
-    #echo -e "└──server: ${DRA_SERVER_3}"
     echo -e ""
 
     #dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER}"
