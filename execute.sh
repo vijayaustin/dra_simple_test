@@ -61,7 +61,11 @@ function dra_commands {
     dra_grunt_command=""
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
-        echo "Criteria List: $1 is defined and not empty"
+        echo "Service List: $1 is defined and not empty"
+		
+		delete_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X DELETE http://da.oneibmcloud.com/api/v1/criteria?name=EnvListCheck_curl1'
+		echo -e "Deleting criteria ...\n"
+		eval $delete_criteria
         
 		criteria_variable='{"name": "EnvListCheck_curl1","revision": 2,"project": "key","mode": "decision","rules": [{"name": "Check for list of services in region","conditions": [{"eval": "_isEnvironmentListPassing('
 		criteria_variable+=$1
@@ -70,10 +74,11 @@ function dra_commands {
 		
 		criteria_to_file='echo $criteria_variable > criteriafile.json'
 		eval $criteria_to_file
-		echo "Contents of criteriafile.json:\n"
+		echo -e "Contents of criteriafile.json:\n"
 		cat criteriafile.json
 		
 		post_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X POST -d @criteriafile.json http://da.oneibmcloud.com/api/v1/criteria'
+		echo -e "Posting criteria ...\n"
 		eval $post_criteria
         
     else
