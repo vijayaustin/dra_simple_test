@@ -53,9 +53,10 @@ function dra_logger {
     #dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER}"
     #dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}" "${DRA_SERVER}"
     #dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}" "${DRA_SERVER}"
-    dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}"
-    dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}"
-    dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}"
+    #dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}"
+    #dra_commands "${DRA_EVENT_TYPE_2}" "${DRA_FILE_2}"
+    #dra_commands "${DRA_EVENT_TYPE_3}" "${DRA_FILE_3}"
+	dra_commands "${DRA_SERVICE_LIST}"
 
 
     
@@ -67,46 +68,24 @@ function dra_commands {
     dra_grunt_command=""
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
-        echo "Event: '$1' is defined and not empty"
+        echo "Criteria List: $1 is defined and not empty"
         
-        dra_grunt_command="grunt --gruntfile=node_modules/grunt-idra/idra.js -eventType=$1"
+		criteria_variable='{"name": "EnvListCheck_curl1","revision": 2,"project": "key","mode": "decision","rules": [{"name": "Check for list of services in region","conditions": [{"eval": "_isEnvironmentListPassing($1)","op": "=","value": true}]}]}'
+		echo "Criteria Variable: $criteria_variable"
+		
+		criteria_to_file='echo $criteria_variable > criteriafile.json'
+		eval $criteria_to_file
+		
+		post_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X POST -d @criteriafile.json http://da.oneibmcloud.com/api/v1/criteria'
+		eval $post_criteria
         
-        echo -e "\tdra_grunt_command: $dra_grunt_command"
-        
-        if [ -n "$2" ] && [ "$2" != " " ]; then
-            echo -e "\tFile: '$2' is defined and not empty"
-            
-            dra_grunt_command="$dra_grunt_command -file=$2"
-        
-            echo -e "\t\tdra_grunt_command: $dra_grunt_command"
-            
-        else
-            echo -e "\tFile: '$2' is not defined or is empty"
-        fi
-        #if [ -n "$3" ] && [ "$3" != " " ]; then
-        #    echo -e "\tServer: '$3' is defined and not empty"
-        #
-        #    dra_grunt_command="$dra_grunt_command -deployAnalyticsServer=$3"
-        #
-        #    echo -e "\t\tdra_grunt_command: $dra_grunt_command"
-        #
-        #else
-        #    echo -e "\tServer: '$3' is not defined or is empty"
-        #fi
-        
-        echo -e "\tFINAL dra_grunt_command: $dra_grunt_command"
-        echo ""
-        
-        eval $dra_grunt_command
     else
-        echo "Event: '$1' is not defined or is empty"
+        echo "Criteria List: $1 is not defined or is empty"
     fi
 }
 
 
-
-
-custom_cmd
+#custom_cmd
 
 dra_logger
 

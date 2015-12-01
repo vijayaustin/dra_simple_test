@@ -15,45 +15,15 @@
             "desc_key": "PROJECT_KEY_DESC"
         },
         
-        
-        
         {
-            "name": "SERVICE_1",
+            "name": "SERVICE_LIST",
             "type": "Text",
             "required": "false",
             "default_value": "",
-            "label_key": "EVENT_TYPE_KEY_1",
-            "desc_key": "EVENT_TYPE_DESC"
-        },
-                
-        
-        
-        {
-            "name": "SERVICE_2",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "EVENT_TYPE_KEY_2",
-            "desc_key": "EVENT_TYPE_DESC"
+            "label_key": "SERVICE_LIST_KEY",
+            "desc_key": "SERVICE_LIST_DESC"
         },
         
-        {
-            "name": "SERVICE_3",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "EVENT_TYPE_KEY_3",
-            "desc_key": "EVENT_TYPE_DESC"
-        },
-        
-		{
-            "name": "SERVICE_4",
-            "type": "Text",
-            "required": "false",
-            "default_value": "",
-            "label_key": "EVENT_TYPE_KEY_4",
-            "desc_key": "EVENT_TYPE_DESC"
-        },
         {
             "name": "COMMAND",
             "type": "TextArea",
@@ -82,6 +52,7 @@ set +e
 
         
 export DRA_PROJECT_KEY=#PROJECT_KEY#
+export DRA_SERVICE_LIST=#SERVICE_LIST#
 export DRA_EVENT_TYPE_1=#EVENT_TYPE_1#
 export DRA_FILE_1=#FILE_1#
 export DRA_SERVER_1=#SERVER_1#
