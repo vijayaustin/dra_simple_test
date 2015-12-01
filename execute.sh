@@ -70,15 +70,15 @@ function dra_commands {
 		criteria_variable='{"name": "EnvListCheck_curl1","revision": 2,"project": "key","mode": "decision","rules": [{"name": "Check for list of services in region","conditions": [{"eval": "_isEnvironmentListPassing('
 		criteria_variable+=$1
 		criteria_variable+=')","op": "=","value": true}]}]}'
-		echo "Criteria Variable: $criteria_variable"
+		#echo -e "\nCriteria Variable: $criteria_variable"
 		
 		criteria_to_file='echo $criteria_variable > criteriafile.json'
 		eval $criteria_to_file
-		echo -e "Contents of criteriafile.json:\n"
+		echo -e "\nCriteria created from service list:\n"
 		cat criteriafile.json
 		
 		post_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X POST -d @criteriafile.json http://da.oneibmcloud.com/api/v1/criteria'
-		echo -e "Posting criteria ...\n"
+		echo -e "\nPosting criteria to API...\n"
 		eval $post_criteria
         
     else
