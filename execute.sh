@@ -85,9 +85,11 @@ function dra_commands {
 }
 
 
-#custom_cmd
+custom_cmd
 
 dra_logger
+
+custom_cmd
 
 
 
