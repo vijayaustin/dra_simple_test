@@ -40,7 +40,6 @@ function dra_logger {
 
     echo "DRA_PROJECT_KEY: ${DRA_PROJECT_KEY}"
     echo "Service List: ${DRA_SERVICE_LIST}"
-    echo -e "└── file: ${DRA_FILE_1}"
     echo -e ""
 
     #dra_commands "${DRA_EVENT_TYPE_1}" "${DRA_FILE_1}" "${DRA_SERVER}"

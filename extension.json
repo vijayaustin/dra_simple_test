@@ -53,15 +53,6 @@ set +e
         
 export DRA_PROJECT_KEY=#PROJECT_KEY#
 export DRA_SERVICE_LIST=\"#SERVICE_LIST#\"
-export DRA_EVENT_TYPE_1=#EVENT_TYPE_1#
-export DRA_FILE_1=#FILE_1#
-export DRA_SERVER_1=#SERVER_1#
-export DRA_EVENT_TYPE_2=#EVENT_TYPE_2#
-export DRA_FILE_2=#FILE_2#
-export DRA_SERVER_2=#SERVER_2#
-export DRA_EVENT_TYPE_3=#EVENT_TYPE_3#
-export DRA_FILE_3=#FILE_3#
-export DRA_SERVER_3=#SERVER_3#
         
 #check for defined host/port, if null set defaults
 if [ -z \"$HOST\" ]; then
