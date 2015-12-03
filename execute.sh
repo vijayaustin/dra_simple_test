@@ -38,7 +38,6 @@ function dra_logger {
     npm install grunt-cli
     npm install grunt-idra
 
-    echo "DRA_PROJECT_KEY: ${DRA_PROJECT_KEY}"
     echo "Service List: ${DRA_SERVICE_LIST}"
     echo -e ""
 
@@ -60,39 +59,38 @@ function dra_commands {
     dra_grunt_command=""
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
-        echo "Service List: $1 is defined and not empty"
+        echo -e "\nService List: $1 is defined and not empty"
+		dra_grunt_command='grunt --gruntfile=node_modules/grunt-idra/idra.js -statusCheck="'
+		dra_grunt_command+=$1
+		dra_grunt_command+='"'
+		echo -e "\nFinal Grunt command for iDRA to check services:\n"
+		echo -e dra_grunt_command
+		echo -e "\nRunning command ...\n"
+		eval $dra_grunt_command
 		
-		delete_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X DELETE http://da.oneibmcloud.com/api/v1/criteria?name=EnvListCheck_curl1'
-		echo -e "Deleting criteria ...\n"
-		eval $delete_criteria
+		#delete_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X DELETE http://da.oneibmcloud.com/api/v1/criteria?name=EnvListCheck_curl1'
+		#echo -e "Deleting criteria ...\n"
+		#eval $delete_criteria
         
-		criteria_variable='{"name": "EnvListCheck_curl1","revision": 2,"project": "key","mode": "decision","rules": [{"name": "Check for list of services in region","conditions": [{"eval": "_isEnvironmentListPassing('
-		criteria_variable+=$1
-		criteria_variable+=')","op": "=","value": true}]}]}'
+		#criteria_variable='{"name": "EnvListCheck_curl1","revision": 2,"project": "key","mode": "decision","rules": [{"name": "Check for list of services in region","conditions": [{"eval": "_isEnvironmentListPassing('
+		#criteria_variable+=$1
+		#criteria_variable+=')","op": "=","value": true}]}]}'
 		#echo -e "\nCriteria Variable: $criteria_variable"
 		
-		criteria_to_file='echo $criteria_variable > criteriafile.json'
-		eval $criteria_to_file
-		echo -e "\nCriteria created from service list:\n"
-		cat criteriafile.json
+		#criteria_to_file='echo $criteria_variable > criteriafile.json'
+		#eval $criteria_to_file
+		#echo -e "\nCriteria created from service list:\n"
+		#cat criteriafile.json
 		
-		post_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X POST -d @criteriafile.json http://da.oneibmcloud.com/api/v1/criteria'
-		echo -e "\nPosting criteria to API...\n"
-		eval $post_criteria
+		#post_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X POST -d @criteriafile.json http://da.oneibmcloud.com/api/v1/criteria'
+		#echo -e "\nPosting criteria to API...\n"
+		#eval $post_criteria
         
     else
-        echo "Criteria List: $1 is not defined or is empty"
+        echo -e "\nService List is not defined or is empty .. proceeding with deployment ..\n"
     fi
 }
 
 dra_logger
 
 custom_cmd
-
-
-
-
-
-
-
-
