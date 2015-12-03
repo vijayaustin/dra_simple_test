@@ -85,9 +85,6 @@ function dra_commands {
     fi
 }
 
-
-custom_cmd
-
 dra_logger
 
 custom_cmd
