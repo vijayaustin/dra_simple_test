@@ -59,13 +59,12 @@ function dra_commands {
     dra_grunt_command=""
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
-        echo -e "\nService List: $1 is defined and not empty"
+        echo -e "Service List: $1 is defined and not empty"
 		dra_grunt_command='grunt --gruntfile=node_modules/grunt-idra/idra.js -statusCheck="'
 		dra_grunt_command+=$1
 		dra_grunt_command+='"'
-		echo -e "\nFinal Grunt command for iDRA to check services:\n"
-		echo -e dra_grunt_command
-		echo -e "\nRunning command ...\n"
+		echo -e "\nFinal command to grunt-iDRA to check services:\n"
+		echo -e $dra_grunt_command
 		eval $dra_grunt_command
 		
 		#delete_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X DELETE http://da.oneibmcloud.com/api/v1/criteria?name=EnvListCheck_curl1'
@@ -93,4 +92,4 @@ function dra_commands {
 
 dra_logger
 
-custom_cmd
+#custom_cmd
