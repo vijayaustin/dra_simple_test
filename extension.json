@@ -12,6 +12,14 @@
         }
     ],
     "params": [
+		{
+            "name": "APPLICATION_NAME",
+            "type": "Text",
+            "required": "true",
+            "default_value": "<Enter App Name>",
+            "label_key": "APPLICATION_NAME_KEY",
+            "desc_key": "APPLICATION_NAME_DESC"
+        },
         {
             "name": "PROJECT_KEY",
             "type": "Secure",
@@ -56,7 +64,7 @@
 set +x
 set +e 
 
-        
+export CF_APP=#APPLICATION_NAME#
 export DRA_PROJECT_KEY=#PROJECT_KEY#
 export DRA_SERVICE_LIST=\"#SERVICE_LIST#\"
         
