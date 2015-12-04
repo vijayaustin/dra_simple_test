@@ -57,6 +57,7 @@ function dra_logger {
 
 function dra_commands {
     dra_grunt_command=""
+	RESULT=1
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
         echo -e "Service List: $1 is defined and not empty"
@@ -66,10 +67,16 @@ function dra_commands {
 		echo -e "\nFinal command to grunt-iDRA to check services:\n"
 		echo -e $dra_grunt_command
 		
-		for var in 0 1 2 3 4 5
+		for var in 1 2 3 4 5
 		do
-		   echo $var
-		   eval $dra_grunt_command
+		   echo -e "Attempt #$var"
+		   while $RESULT -ne 0
+			do
+			sleep 5
+			eval $dra_grunt_command
+			RESULT=$?
+			echo -e "Result of attempt #$var: $RESULT"
+			done
 		done
 		
 		
