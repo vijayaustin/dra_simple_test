@@ -66,7 +66,7 @@ function dra_commands {
 		dra_grunt_command='grunt --gruntfile=node_modules/grunt-idra/idra.js -statusCheck="'
 		dra_grunt_command+=$1
 		dra_grunt_command+='"'
-		echo -e "\nFinal command sent to grunt-iDRA to check services:\n"
+		echo -e "Final command sent to grunt-iDRA to check services:\n"
 		echo -e $dra_grunt_command
 		
 		eval $dra_grunt_command
@@ -85,7 +85,7 @@ function dra_commands {
 		done
 		
 		if [ $RESULT != 0 ]; then 
-			echo -e "FINAL RESULT OF $ATTEMPT ATTEMPTS: $RESULT"
+			echo -e "\nFINAL RESULT OF $ATTEMPT_MAX ATTEMPTS: $RESULT"
 			return $RESULT
 		else
 			return 0
