@@ -70,7 +70,7 @@ function dra_commands {
 		for var in 1 2 3 4 5
 		do
 		   echo -e "Attempt #$var"
-		   while $RESULT -ne 0
+		   while [ $RESULT -ne 0 ]
 			do
 			sleep 5
 			eval $dra_grunt_command
