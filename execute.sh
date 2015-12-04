@@ -62,17 +62,20 @@ function dra_commands {
 	ATTEMPT_MAX=5
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
-        echo -e "Service List: $1 is defined and not empty"
+        #echo -e "Service List: $1 is defined and not empty"
 		dra_grunt_command='grunt --gruntfile=node_modules/grunt-idra/idra.js -statusCheck="'
 		dra_grunt_command+=$1
 		dra_grunt_command+='"'
-		echo -e "\nFinal command to grunt-iDRA to check services:\n"
+		echo -e "\nFinal command sent to grunt-iDRA to check services:\n"
 		echo -e $dra_grunt_command
 		
 		eval $dra_grunt_command
 		RESULT=$?
 		
-		while [[ $RESULT -ne 0 && $ATTEMPT -lt $ATTEMPT_MAX ]]
+		if [ $RESULT != 0 ]; then 
+			echo -e "\nTRYING MULTIPLE ATTEMPTS TO CHECK FOR SERVICE STATUS ...\n"
+		fi
+		while [[ $RESULT -ne 0 && $ATTEMPT -le $ATTEMPT_MAX ]]
 		do
 			sleep 5
 			eval $dra_grunt_command
@@ -81,8 +84,8 @@ function dra_commands {
 			ATTEMPT=`expr $ATTEMPT + 1`
 		done
 		
-		echo -e "Final result of attempts (after while loop): $RESULT"
 		if [ $RESULT != 0 ]; then 
+			echo -e "FINAL RESULT OF $ATTEMPT ATTEMPTS: $RESULT"
 			return $RESULT
 		else
 			return 0
