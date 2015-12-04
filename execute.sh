@@ -65,7 +65,13 @@ function dra_commands {
 		dra_grunt_command+='"'
 		echo -e "\nFinal command to grunt-iDRA to check services:\n"
 		echo -e $dra_grunt_command
-		eval $dra_grunt_command
+		
+		for var in 0 1 2 3 4 5
+		do
+		   echo $var
+		   eval $dra_grunt_command
+		done
+		
 		
 		#delete_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X DELETE http://da.oneibmcloud.com/api/v1/criteria?name=EnvListCheck_curl1'
 		#echo -e "Deleting criteria ...\n"
