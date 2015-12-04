@@ -82,7 +82,11 @@ function dra_commands {
 		done
 		
 		echo -e "Final result of attempts (after while loop): $RESULT"
-		if [[ $RESULT != 0 ]]; then exit $RESULT
+		if [ $RESULT != 0 ]; then 
+			exit $RESULT
+		else
+			exit 0
+		fi
 		
 		#delete_criteria='curl -H "projectKey: ${DRA_PROJECT_KEY}" -H "Content-Type: application/json" -X DELETE http://da.oneibmcloud.com/api/v1/criteria?name=EnvListCheck_curl1'
 		#echo -e "Deleting criteria ...\n"
