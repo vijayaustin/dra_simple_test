@@ -72,7 +72,7 @@ function dra_commands {
 		eval $dra_grunt_command
 		RESULT=$?
 		echo -e "Result of initial attempt: $RESULT"
-		while [[ $RESULT -ne 0 && $ATTEMPT -lt $ATTEMPT_MAX ]
+		while [[ $RESULT -ne 0 && $ATTEMPT -lt $ATTEMPT_MAX ]]
 		do
 			sleep 5
 			eval $dra_grunt_command
