@@ -59,7 +59,7 @@ function dra_commands {
     dra_grunt_command=""
 	RESULT=1
 	ATTEMPT=1
-	ATTEMPT_MAX=5
+	#DRA_ATTEMPT_MAX=5
     
     if [ -n "$1" ] && [ "$1" != " " ]; then
         #echo -e "Service List: $1 is defined and not empty"
@@ -75,7 +75,7 @@ function dra_commands {
 		if [ $RESULT != 0 ]; then 
 			echo -e "\nTRYING MULTIPLE ATTEMPTS TO CHECK FOR SERVICE STATUS ...\n"
 		fi
-		while [[ $RESULT -ne 0 && $ATTEMPT -le $ATTEMPT_MAX ]]
+		while [[ $RESULT -ne 0 && $ATTEMPT -le $DRA_ATTEMPT_MAX ]]
 		do
 			sleep 5
 			eval $dra_grunt_command
@@ -85,7 +85,7 @@ function dra_commands {
 		done
 		
 		if [ $RESULT != 0 ]; then 
-			echo -e "\nFINAL RESULT OF $ATTEMPT_MAX ATTEMPTS: $RESULT"
+			echo -e "\nFINAL RESULT OF $DRA_ATTEMPT_MAX ATTEMPTS: $RESULT"
 			return $RESULT
 		else
 			return 0

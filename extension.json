@@ -28,6 +28,14 @@
             "label_key": "SERVICE_LIST_KEY",
             "desc_key": "SERVICE_LIST_DESC"
         },
+		{
+            "name": "ATTEMPT_MAX",
+            "type": "Text",
+            "required": "false",
+            "default_value": "0",
+            "label_key": "ATTEMPT_MAX_KEY",
+            "desc_key": "ATTEMPT_MAX_DESC"
+        },
         {
             "name": "COMMAND",
             "type": "TextArea",
@@ -53,6 +61,7 @@ set +e
 export CF_APP=#APPLICATION_NAME#
 export DRA_PROJECT_KEY=#PROJECT_KEY#
 export DRA_SERVICE_LIST=\"#SERVICE_LIST#\"
+export DRA_ATTEMPT_MAX=#ATTEMPT_MAX#
         
 #check for defined host/port, if null set defaults
 if [ -z \"$HOST\" ]; then
