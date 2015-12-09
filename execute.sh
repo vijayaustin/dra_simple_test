@@ -77,7 +77,7 @@ function dra_commands {
 		fi
 		while [[ $RESULT -ne 0 && $ATTEMPT -le $DRA_ATTEMPT_MAX ]]
 		do
-			sleep 5
+			sleep 6
 			eval $dra_grunt_command
 			RESULT=$?
 			echo -e "Result of attempt #$ATTEMPT: $RESULT"
